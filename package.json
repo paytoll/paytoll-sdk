@@ -1,0 +1,90 @@
+{
+  "name": "@paytoll/sdk",
+  "version": "0.2.0",
+  "description": "Developer toolkit for accepting machine payments on Solana via the Machine Payments Protocol (MPP)",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./express": {
+      "types": "./dist/middleware/express.d.ts",
+      "import": "./dist/middleware/express.mjs",
+      "require": "./dist/middleware/express.js"
+    },
+    "./hono": {
+      "types": "./dist/middleware/hono.d.ts",
+      "import": "./dist/middleware/hono.mjs",
+      "require": "./dist/middleware/hono.js"
+    }
+  },
+  "bin": {
+    "paytoll": "./dist/cli/index.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src/",
+    "type-check": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "solana",
+    "mpp",
+    "machine-payments",
+    "api-monetization",
+    "http-402",
+    "payment-required",
+    "middleware",
+    "express",
+    "hono"
+  ],
+  "author": "PayToll",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paytoll/sdk"
+  },
+  "homepage": "https://paytoll.xyz",
+  "dependencies": {
+    "@solana/spl-token": "^0.4.14",
+    "@solana/web3.js": "^1.98.0",
+    "commander": "^12.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.0.0",
+    "eslint": "^9.0.0",
+    "express": "^4.21.0",
+    "hono": "^4.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.0.0"
+  },
+  "peerDependencies": {
+    "express": ">=4.0.0",
+    "hono": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "express": {
+      "optional": true
+    },
+    "hono": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ]
+}
